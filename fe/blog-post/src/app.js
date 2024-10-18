@@ -23,7 +23,7 @@ function App() {
 
   const addPost = (post) => {
     const newPost = new Post(post.title, post.content);
-    const newPosts = [...posts, newPost];
+    const newPosts = [...posts, newPost].sort((a, b) => new Date(b.published_at) - new Date(a.published_at));
     setPosts(newPosts);
     savePostsToLocalStorage(newPosts);
   };
